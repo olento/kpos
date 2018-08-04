@@ -12,6 +12,8 @@
 						"dev-server": "webpack-dev-server --mode development"
 			},
 			"dependencies": {
+						"ag-grid": "^18.1.2",
+						"ag-grid-react": "^18.1.0",
 						"babel-cli": "6.24.1",
 						"babel-core": "^6.26.0",
 						"babel-loader": "^7.1.4",
@@ -19,6 +21,7 @@
 						"babel-plugin-transform-object-rest-spread": "^6.26.0",
 						"babel-preset-env": "1.5.2",
 						"babel-preset-react": "6.24.1",
+						"bignumber": "^1.1.0",
 						"bootstrap": "^4.1.2",
 						"css-loader": "^0.28.11",
 						"knex": "^0.15.2",
@@ -33,6 +36,7 @@
 						"react-addons-shallow-compare": "^15.6.2",
 						"react-dates": "^16.7.0",
 						"react-dom": "^16.3.1",
+						"react-dom-factories": "^1.0.2",
 						"react-modal": "^3.3.2",
 						"react-redux": "^5.0.7",
 						"react-router-dom": "^4.2.2",

@@ -4,7 +4,6 @@ import { Provider }    from 'react-redux';
 import configureStore  from './store/configureStore';
 import {BrowserRouter} from 'react-router-dom';
 import Layout          from './components/Layout.js';
-import { addItem, editItem }     from './actions/items'; 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
@@ -13,27 +12,33 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addItem({
-    name: 'Toffee',
-    price: 3000000
-}));
+const rowData = [
+    { id: 0, name: "Suklaa",   price: 3.00 },
+    { id: 1, name: "Toffee",   price: 2.50 },
+    { id: 2, name: "Lakritsi", price: 2.50 },
+    { id: 3, name: "Hattara",  price: 1.50 },
+];
 
-store.dispatch(addItem({
-    name: 'Lakritsi',
-    price: 3000000,
-    createdAt: 1000
-}));
-
-const hattara = store.dispatch(addItem({
-    name: 'Hattara',
-    price: 3500000
-}));
-
+store.dispatch({
+    type: 'ROW_DATA_CHANGED',
+    rowData: rowData.slice(0)
+});
 
 setTimeout(() => {
-    store.dispatch(editItem(hattara.item.id, { name: 'Hattara3'}))
-    console.log(store.getState());
-}, 3000);
+    rowData.push({
+	id: 4,
+	name: "Megahattara",
+	price: 3.00
+    });
+
+    rowData[3].price = 1.75;
+
+    store.dispatch({
+	type: 'ROW_DATA_CHANGED',
+	rowData: rowData.slice(0)
+    });
+}, 5000);
+
 
 const jsx = (
     <Provider store={store}>

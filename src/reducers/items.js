@@ -1,5 +1,5 @@
 const itemsReducerDefaultState = [];
-export default (state = itemsReducerDefaultState, action) => {
+export default (state = {rowData: []}, action) => {
     switch (action.type) {
 	case 'ADD_ITEM':
 	    return [...state, action.item];
@@ -12,6 +12,11 @@ export default (state = itemsReducerDefaultState, action) => {
 
 		return item;
 	    });
+	case 'ROW_DATA_CHANGED':
+	    return {
+		...state,
+		rowData: action.rowData,
+	    };
 	default:
 	    return state;
     }

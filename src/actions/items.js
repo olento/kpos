@@ -23,8 +23,8 @@ export const removeItem = ({ id } = {}) => ({
     id
 });
 
-export const editItem = (id, updates) => ({
+export const editItem = (id, updates) => {
     type: 'EDIT_ITEM',
     id,
     updates
-});
+};
